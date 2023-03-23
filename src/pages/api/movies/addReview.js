@@ -4,7 +4,7 @@ import Movie from "@/models/Movie";
 const handler = async (req, res) => {
   if (req.method === "POST") {
     try {
-      const movie = await Movie.findByIdAndUpdate(req.body.id);
+      const movie = await Movie.findById(req.body.id);
 
       movie.reviews.push(req.body.text);
       await movie.save();
