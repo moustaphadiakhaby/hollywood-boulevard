@@ -6,6 +6,8 @@ const handler = async (req, res) => {
     try {
       const movie = await Movie.findById(req.body.id);
 
+      console.log(movie);
+
       movie.reviews.push(req.body.text);
       await movie.save();
 

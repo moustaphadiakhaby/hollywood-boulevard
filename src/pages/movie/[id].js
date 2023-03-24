@@ -16,10 +16,13 @@ const MoviePage = ({ data }) => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3000/api/movies/addReview", {
-        id: data._id,
-        text: input,
-      });
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/movies/addReview`,
+        {
+          id: data._id,
+          text: input,
+        }
+      );
     } catch (error) {
       console.log(error.message);
     }
